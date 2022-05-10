@@ -4,10 +4,11 @@ public class CardGameApp extends GameApp{
 
 	
 	public CardGameApp() {
-		
+		super();
 	}
 	
 	public CardGameApp(String item) {
+		super(item);
 	}
 	
 	public String start(String name) {
