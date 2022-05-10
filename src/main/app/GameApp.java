@@ -14,6 +14,5 @@ public class GameApp {
 	
 	public String start(String name) {
 		return  name+"さんと"+item+"でゲームを開始します";
-		
 	}
 }

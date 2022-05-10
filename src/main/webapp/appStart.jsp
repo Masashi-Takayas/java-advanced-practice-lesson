@@ -1,4 +1,3 @@
-<%@ page import="app.GameApp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 
@@ -31,7 +30,7 @@ body {
   <div class="result">
     <h3>アプリの実行結果</h3>
  <c:if test="${not empty name}">
-    <p>${requestScope.name}さんと何かでゲームを開始します</p>
+    <p>${requestScope.name}さんと${requestScope.result}でゲームを開始します</p>
 </c:if>
  
   </div>
@@ -40,9 +39,9 @@ body {
     <label>ユーザ名：</label>
     <input type="text" name="name">
     <br>
-    <input type="radio" name="name"value="アプリ">
-    <input type="radio" name="name"value="トランプ"checked>
-    <input type="radio" name="name"value="ゲーム">
+    <input type="radio" name="appType"value="アプリ">アプリ
+    <input type="radio" name="appType"value="トランプ" checked>トランプ
+    <input type="radio" name="appType"value="ゲーム">ゲーム
     <br>
     <button type="submit">実行</button>
   </form>
