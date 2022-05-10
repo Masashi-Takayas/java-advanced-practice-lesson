@@ -1,4 +1,4 @@
-package app;
+package java.app;
 
 public class GameApp {
 
