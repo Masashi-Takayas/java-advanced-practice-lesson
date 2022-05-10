@@ -1,4 +1,4 @@
-package java.app;
+package app;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -44,22 +44,16 @@ public class StartAppServlet extends HttpServlet {
             
             if (appType.equals("トランプ")) {
                 app = new CardGameApp("トランプ");
-            }
-            else if(appType.equals("アプリ")) {
-                app = new CardGameApp("アプリ");	
-            }
-            else if(appType.equals("ゲーム")) {
-                app = new CardGameApp("ゲーム");	
-            }
-            else {
+            }  else {
                 app = new GameApp("何か");
             }
             
             String result = "";
-
+            
             result = app.start(name);
-
+            
             request.setAttribute("result", result);
+            
         }
         request.getRequestDispatcher("appStart.jsp").forward(request, response);
     }

@@ -2,6 +2,7 @@
   pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <!DOCTYPE html>
 <html><head>
@@ -29,19 +30,17 @@ body {
 
   <div class="result">
     <h3>アプリの実行結果</h3>
- <c:if test="${not empty name}">
-    <p>${requestScope.name}さんと${requestScope.result}でゲームを開始します</p>
+ <c:if test="${not empty result}">
+    <p>${requestScope.result}</p>
 </c:if>
- 
-  </div>
+</div>
 
   <form action="StartAppServlet" method="post">
     <label>ユーザ名：</label>
     <input type="text" name="name">
     <br>
-    <input type="radio" name="radiobutton"value="アプリ">アプリ
     <input type="radio" name="radiobutton"value="トランプ" checked>トランプ
-    <input type="radio" name="radiobutton"value="ゲーム">ゲーム
+    <input type="radio" name="radiobutton"value="何か">ゲーム
     <br>
     <button type="submit">実行</button>
   </form>

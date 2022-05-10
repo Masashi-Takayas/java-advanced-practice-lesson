@@ -1,4 +1,4 @@
-package java.app;
+package app;
 
 public class CardGameApp extends GameApp{
 
@@ -12,7 +12,6 @@ public class CardGameApp extends GameApp{
 	}
 	
 	public String start(String name) {
-		
 		return name+"さんと"+item+"でゲームを開始します。ババ抜きを行います。";
 	}
 
