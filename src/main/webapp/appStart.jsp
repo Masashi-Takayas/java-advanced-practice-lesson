@@ -4,19 +4,6 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!--     request.setCharacterEncoding("UTF-8"); -->
-<!--     String name = request.getParameter("name"); -->
-
-<!--     String result = "未実施"; -->
-
-<!--     GameApp item = new GameApp("何か"); -->
-    
-<!--     if (name != null && !name.isEmpty()) { -->
-<!--     	// このif分の中で、GameAppクラスのstartメソッドを呼び出し、 -->
-<!--      	result = item.start(name); -->
-<!--     	// 戻り値をresultに代入してください。 -->
-<!--     } -->
-    
 <!DOCTYPE html>
 <html><head>
 <meta charset="UTF-8">
@@ -52,6 +39,10 @@ body {
   <form action="StartAppServlet" method="post">
     <label>ユーザ名：</label>
     <input type="text" name="name">
+    <br>
+    <input type="radio" name="name"value="アプリ">
+    <input type="radio" name="name"value="トランプ"checked>
+    <input type="radio" name="name"value="ゲーム">
     <br>
     <button type="submit">実行</button>
   </form>
