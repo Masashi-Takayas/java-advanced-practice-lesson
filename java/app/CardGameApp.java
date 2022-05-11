@@ -11,8 +11,9 @@ public class CardGameApp extends GameApp{
 		super(item);
 	}
 	
-	public String start(String name) {
-		return name+"さんと"+item+"でゲームを開始します。ババ抜きを行います。";
+	public String play() {
+		
+		return "ババ抜きを行います。";
 	}
 
 }

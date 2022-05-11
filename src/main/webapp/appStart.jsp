@@ -36,11 +36,14 @@ body {
 </div>
 
   <form action="StartAppServlet" method="post">
-    <label>ユーザ名：</label>
+    <label>名前：</label>
     <input type="text" name="name">
     <br>
+    <label>アプリ名：</label>
     <input type="radio" name="radiobutton"value="トランプ" checked>トランプ
-    <input type="radio" name="radiobutton"value="何か">ゲーム
+    <input type="radio" name="radiobutton"value="ダーツ">ダーツ
+    <input type="radio" name="radiobutton"value="時計">時計
+    <input type="radio" name="radiobutton"value="その他">その他
     <br>
     <button type="submit">実行</button>
   </form>

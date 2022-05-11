@@ -13,48 +13,56 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/StartAppServlet")
 public class StartAppServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public StartAppServlet() {
-        super();
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public StartAppServlet() {
+		super();
+	}
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-        response.getWriter().append("Served at: ").append(request.getContextPath());
-    }
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // 入力値取得
-        request.setCharacterEncoding("UTF-8");
-        String name = request.getParameter("name");
-        String appType = request.getParameter("radiobutton");
-        
-        if (name != null && !name.isEmpty()) {
-            GameApp app;
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// 入力値取得
+		request.setCharacterEncoding("UTF-8");
+		String name = request.getParameter("name");
+		String appType = request.getParameter("radiobutton");
+		String result = "";
 
-            
-            if (appType.equals("トランプ")) {
-                app = new CardGameApp("トランプ");
-            }  else {
-                app = new GameApp("何か");
-            }
-            
-            String result = "";
-            
-            result = app.start(name);
-            
-            request.setAttribute("result", result);
-            
-        }
-        request.getRequestDispatcher("appStart.jsp").forward(request, response);
-    }
+		if (name != null && !name.isEmpty()) {
+			GameApp app;
+			ClockApp clock;
+
+
+			if (appType.equals("トランプ")) {
+				app = new CardGameApp("トランプ");
+				result = app.start(name) + app.play();
+			}
+			else if(appType.equals("ダーツ")) {
+				app = new DartsGameApp("ダーツ");
+				result = app.start(name) + app.play();
+			}
+			else if(appType.equals("時計")) {
+				clock = new ClockApp();
+				result = clock.start(name);
+			}
+			else {
+				result = "アプリの実行に失敗しました。";
+			}
+
+			request.setAttribute("result", result);
+
+		}
+		request.getRequestDispatcher("appStart.jsp").forward(request, response);
+	}
 }
