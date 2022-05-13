@@ -31,8 +31,9 @@ body {
   <div class="result">
     <h3>アプリの実行結果</h3>
  <c:if test="${not empty result}">
-    <p>${requestScope.result}</p>
+    <p>${requestScope.result}</p>   
 </c:if>
+    <p>${requestScope.time}</p> 
 </div>
 
   <form action="StartAppServlet" method="post">
