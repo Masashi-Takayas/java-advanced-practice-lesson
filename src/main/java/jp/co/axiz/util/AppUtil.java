@@ -24,6 +24,14 @@ public class AppUtil {
 			return false;
 		}
 	}
+	public static boolean isDartsGameApp(App app) {
+		if(app instanceof DartsGameApp) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	public static boolean isClockApp(App app) {
 		if(app instanceof ClockApp) {
 			return true;		
@@ -32,20 +40,25 @@ public class AppUtil {
 			return false;
 		}
 	}
+	
+	
 	public static String getAppName(App app) {
-		if(app instanceof CardGameApp) {
-			return "「ゲーム:カード」";		
+		String appName = "";
+
+		if(isGameApp(app)) {
+			appName = "ゲーム:";		
+			if(isCardGameApp(app)) 
+			{
+				appName +=  "カード";
+			}
+			else if(isDartsGameApp(app))
+			{
+				appName +=  "ダーツ";
+			}
 		}
-		else if(app instanceof DartsGameApp) 
-		{
-			return "「ゲーム:ダーツ」";
+		else if(isClockApp(app)){
+			appName =  "時計";
 		}
-		else if(app instanceof GameApp)
-		{
-			return "「ゲーム：〇〇」";
-		}
-		else {
-			return "時計";
-		}
+		return appName;
 	}
 }
